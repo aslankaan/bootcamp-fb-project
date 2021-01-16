@@ -1,12 +1,12 @@
 import { createAction, props } from '@ngrx/store';
+import { IProfile } from './profile.models';
 
 export const loadProfiles = createAction(
   '[Profile] Load Profiles'
 );
 
 export const loadProfilesSuccess = createAction(
-  '[Profile] Load Profiles Success',
-  props<{ data: any }>()
+  '[Profile] Load Profiles Success'
 );
 
 export const loadProfilesFailure = createAction(
@@ -20,5 +20,10 @@ export const getProfileFromDB = createAction(
 
 export const getProfileFromDBLoaded = createAction(
   '[Profile] Get Profile From DB Loaded',
-  props<{ profileInfo: any }>()
+  props<{ profileInfo: IProfile }>()
+);
+
+export const saveProfileToDB = createAction(
+  '[Profile] Save Profile To DB',
+  props<{ profileInfo: IProfile }>()
 );

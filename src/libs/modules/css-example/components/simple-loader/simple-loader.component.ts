@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimpleLoaderComponent implements OnInit {
 
+  loadingDisabled: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

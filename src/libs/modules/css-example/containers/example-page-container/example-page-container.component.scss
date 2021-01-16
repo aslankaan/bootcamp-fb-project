@@ -1,0 +1,18 @@
+.page-container {
+  height: calc(100% - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.loader-container {
+  width: 200px;
+  height: 200px;
+}
+
+@media (max-width: 599px) {
+  .page-container {
+    height: calc(100% - 56px);
+  }
+}

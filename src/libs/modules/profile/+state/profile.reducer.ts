@@ -1,13 +1,14 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as ProfileActions from './profile.actions';
+import { IProfile } from './profile.models';
 
 export const profileFeatureKey = 'profile';
 
-export interface State {
-  profileInfo?: any;
+export interface ProfileState {
+  profileInfo?: IProfile;
 }
 
-export const initialState: State = {
+export const initialState: ProfileState = {
 
 };
 
@@ -25,6 +26,5 @@ export const reducer = createReducer(
       profileInfo: action.profileInfo
     }
   }),
-
 );
 
