@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { ProfileDbService } from '../../services/profile-db.service';
 import { Store, select } from '@ngrx/store';
-import { State } from '../../+state/profile.reducer';
-import { getProfileFromDB } from '../../+state/profile.actions';
+import { ProfileState } from '../../+state/profile.reducer';
+import { getProfileFromDB, saveProfileToDB } from '../../+state/profile.actions';
 import { selectProfileInfo } from '../../+state/profile.selectors';
-import { delay, filter } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile-form-container',
@@ -24,8 +23,7 @@ export class ProfileFormContainerComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    public profileDB: ProfileDbService,
-    private store: Store<State>
+    private store: Store<ProfileState>
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +39,7 @@ export class ProfileFormContainerComponent implements OnInit {
       ).subscribe((profileInfo) => {
         this.myForm.patchValue(profileInfo, { emitEvent: false });
       })
-    )
+    );
   }
 
   ngOnDestroy() {
@@ -49,7 +47,7 @@ export class ProfileFormContainerComponent implements OnInit {
   }
 
   handleSaveClicked() {
-    this.profileDB.saveProfile(this.myForm.value);
+    this.store.dispatch(saveProfileToDB({profileInfo: this.myForm.value}));
   }
 
 }
