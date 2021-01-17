@@ -22,6 +22,10 @@ export class AppComponent {
     {
       name: "CSS",
       routerLink: "css"
+    },
+    {
+      name: "Details",
+      routerLink: "technical"
     }
   ]
 

@@ -34,6 +34,11 @@ const routes: Routes = [
     loadChildren: () => import('../libs/modules/css-example/css-example.module').then(m => m.CssExampleModule),
     ...canActivate(redirectUnauthorizedToLogin)
   },
+  {
+    path: 'technical',
+    loadChildren: () => import('../libs/modules/technical-details/technical-details.module').then(m => m.TechnicalDetailsModule),
+    ...canActivate(redirectUnauthorizedToLogin)
+  },
 ];
 
 @NgModule({

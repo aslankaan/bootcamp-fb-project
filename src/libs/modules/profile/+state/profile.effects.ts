@@ -34,7 +34,6 @@ export class ProfileEffects {
           take(1),
           switchMap((user) => {
             return this.firestore.doc(`profiles/${user.uid}`).valueChanges().pipe(
-              tap(console.log),
               filter(value => !!value),
               map((value: IProfile) => ProfileActions.getProfileFromDBLoaded({ profileInfo: value }))
             )
