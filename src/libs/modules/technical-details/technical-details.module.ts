@@ -18,7 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 const routes: Route[] = [
   {
     path: "",
-    redirectTo: "event-loop"
+    redirectTo: "rx-dialog"
   },
   {
     path: "event-loop",

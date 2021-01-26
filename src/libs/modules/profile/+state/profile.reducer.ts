@@ -20,10 +20,10 @@ export const reducer = createReducer(
   on(ProfileActions.loadProfilesSuccess, (state, action) => state),
   on(ProfileActions.loadProfilesFailure, (state, action) => state),
 
-  on(ProfileActions.getProfileFromDBLoaded, (state, { profileInfo }) => {
+  on(ProfileActions.getProfileFromDBLoaded, (state, action) => {
     return {
       ...state,
-      profileInfo: profileInfo
+      profileInfo: action.profileInfo
     }
   }),
 );
